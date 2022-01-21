@@ -47,7 +47,6 @@
 
     }
 
-
     function borra_perfil(id){
 
       swal({
@@ -92,14 +91,13 @@
 
     }
 
-
     function guarda_perfil(){
 
       let id = document.getElementById("id").value;
-      let identificador =  document.getElementById("identificador").value;
+      let identifier =  document.getElementById("identificador").value;
       let description = document.getElementById("descripcion").value;
 
-      if( (identificador === null || identificador === '') || (description === null || description === '') ){
+      if( (identifier === null || identifier === '') || (description === null || description === '') ){
           
         swal("Los campos son obligatorios", "Ingrese los datos faltantes", "info");
         
@@ -112,7 +110,7 @@
           async : true,
           data:{
             'id' : id,
-            'identificador' : identificador.toUpperCase(),
+            'identificador' : identifier.toUpperCase(),
             'descripcion' : description  
           },
           success: function(resp) {
@@ -140,7 +138,6 @@
       
     }
 
-
   </script>
   <body>
   <?php
@@ -164,7 +161,7 @@
           <?php 
             foreach ($listado as $perfil) {
               echo '
-              <tr id=row_'.$perfil['id_perfil'].'> 
+              <tr id=row_'.$perfil['id_perfil'].' class="text-center" > 
                  <td>'.$perfil['id_perfil'].'</td>
                  <td>'.$perfil['per_nombre'].'</td>
                  <td >
