@@ -15,10 +15,10 @@
 
         // Get data from form
 
-        let identificador = document.getElementById("identificador").value;
+        let identifier = document.getElementById("identificador").value;
         let description = document.getElementById("descripcion").value;
 
-        if((identificador === null || identificador === '') || (description === null || description === '')){
+        if((identifier === null || identifier === '') || (description === null || description === '')){
           
           swal("Los campos son obligatorios", "Ingrese los datos faltantes", "info");
         
@@ -30,18 +30,18 @@
             dataType: 'json',
             async : true,
             data:{
-              'identificador' : identificador.toUpperCase(),  
+              'identificador' : identifier.toUpperCase(),  
               'description': description               
             },
             success: function(resp) {
 
               if(resp){
                 
-                swal("Registro Exitoso", "", "success")
-                .then((value) => {
-                  window.location = base_url+'listado/index';
-                });
-               
+                document.getElementById("identificador").value = "";
+                document.getElementById("descripcion").value = "";
+                
+                swal("Registro Exitoso", "Ahora su registro se encuentra en la seccion 'Listado' ", "success")
+                
               }else{
                 swal("Registro no exisoto", "Intente nuevamente", "info");
               }

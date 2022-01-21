@@ -73,7 +73,7 @@
                     
               swal("Borrado Exitoso", "", "success")
                 .then((value) => {
-                  window.location = base_url+'listado/index';
+                  document.getElementById("row_"+id).remove();
                 });
             
             }else{
@@ -164,7 +164,7 @@
           <?php 
             foreach ($listado as $perfil) {
               echo '
-              <tr> 
+              <tr id=row_'.$perfil['id_perfil'].'> 
                  <td>'.$perfil['id_perfil'].'</td>
                  <td>'.$perfil['per_nombre'].'</td>
                  <td >
